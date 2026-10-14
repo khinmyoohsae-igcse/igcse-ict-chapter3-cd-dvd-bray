@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE ICT - Optical Storage Devices Quiz (Shuffled Answers)</title>
+    <style>
+        :root {
+            --bg-main: #090d16;
+            --bg-card: #131d31;
+            --border-color: #223354;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            color: var(--accent);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .quiz-status {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .score-pill {
+            background-color: #0c4a6e;
+            color: #7dd3fc;
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #0284c7;
+        }
+
+        .card {
+            width: 100%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            background-color: #1e293b;
+            color: var(--text-main);
+            padding: 1rem 1.25rem;
+            border-radius: 0.85rem;
+            border: 1px solid #334155;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background-color: #283548;
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+        }
+
+        .option-btn.correct {
+            background-color: #064e3b !important;
+            border-color: #059669 !important;
+            color: #ecfdf5 !important;
+        }
+
+        .option-btn.incorrect {
+            background-color: #7f1d1d !important;
+            border-color: #dc2626 !important;
+            color: #fee2e2 !important;
+        }
+
+        .feedback-box {
+            padding: 1.15rem;
+            border-radius: 0.85rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .feedback-box.correct-feedback {
+            background-color: #022c22;
+            border: 1px solid #047857;
+            color: #a7f3d0;
+        }
+
+        .feedback-box.incorrect-feedback {
+            background-color: #450a0a;
+            border: 1px solid #b91c1c;
+            color: #fecdd3;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #0f172a;
+            font-weight: 700;
+            padding: 0.85rem 1.75rem;
+            border-radius: 0.85rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .results-card {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .results-card h2 {
+            font-size: 2.25rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .results-card p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>IGCSE ICT Practice Quiz</h1>
+        <p>Topic 3.2 Optical Media & Storage Devices (CD, DVD, Blu-ray)</p>
+    </header>
+
+    <main>
+        <div class="quiz-status">
+            <span id="question-counter">Question 1 of 30</span>
+            <span id="score-display" class="score-pill">Score: 0</span>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" class="card">
+            <div id="question-box" class="question-text">
+                Loading question...
+            </div>
+
+            <div id="options-container" class="options-list">
+                <!-- Options populated dynamically -->
+            </div>
+
+            <div id="feedback-box" class="feedback-box hidden">
+                <!-- Feedback populated dynamically -->
+            </div>
+
+            <div style="display: flex; justify-content: flex-end;">
+                <button id="next-btn" onclick="nextQuestion()" class="btn-primary hidden">Next Question} </button>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" class="card results-card hidden">
+            <h2>Quiz Completed! 🎉</h2>
+            <p id="final-score">You scored X out of 30</p>
+            <button onclick="restartQuiz()" class="btn-primary">Restart Quiz</button>
+        </div>
+    </main>
+
+    <footer>
+        IGCSE ICT Revision &bull; Optical Storage Media
+    </footer>
+
+    <script>
+        const questions = [
+            // General Optical Media & 3.2.1 CD/DVD (1 to 15)
+            {
+                question: "How do optical storage media (such as CDs, DVDs, and Blu-ray discs) fundamentally store digital data?",
+                options: [
+                    { text: "By using laser beams to burn or read microscopic 'pits' and 'lands' along a single spiral track on a polycarbonate plastic disc", isCorrect: true, rationale: "Optical media store binary data as microscopic pits and flat lands etched along a spiral track, read by a laser beam." },
+                    { text: "By magnetizing localized iron oxide particles on spinning metallic platters", isCorrect: false, rationale: "This describes magnetic storage media like HDDs." },
+                    { text: "By capturing electrical charges in semiconductor NAND flash memory gates", isCorrect: false, rationale: "This describes solid-state drives (SSDs)." },
+                    { text: "By pressing mechanical metal pins against carbon-copy paper ribbons", isCorrect: false, rationale: "This describes dot-matrix impact printers." }
+                ]
+            },
+            {
+                question: "What is the physical difference between a 'pit' and a 'land' on the surface of an optical disc?",
+                options: [
+                    { text: "A pit is a depression or indentation stamped into the polycarbonate layer, while a land is the flat, unindented surface between pits", isCorrect: true, rationale: "Pits scatter laser light while lands reflect it back, creating binary light-reflection patterns." },
+                    { text: "A pit is made of magnetic iron oxide, while a land is made of solid copper wire", isCorrect: false, rationale: "Optical discs do not use copper or magnetism." },
+                    { text: "A pit is an electrical transistor gate, while a land is an insulated capacitor", isCorrect: false, rationale: "This describes RAM and flash memory chips." },
+                    { text: "A pit prints ink onto paper, while a land acts as a blank margin", isCorrect: false, rationale: "This describes printers." }
+                ]
+            },
+            {
+                question: "How does an optical disc drive read the data encoded on a spinning CD, DVD, or Blu-ray disc?",
+                options: [
+                    { text: "By shining a laser beam onto the disc surface and measuring the amount of light reflected back from pits and lands", isCorrect: true, rationale: "Transitions between pits and lands alter laser light reflection, which photo-sensors translate into binary 1s and 0s." },
+                    { text: "By passing electric current through an actuator arm carrying magnetic read heads", isCorrect: false, rationale: "This describes magnetic hard disk drives." },
+                    { text: "By reading radio frequency waves emitted by microchips inside the disc", isCorrect: false, rationale: "This describes RFID technology." },
+                    { text: "By measuring electrostatic capacitance changes when touched by a finger", isCorrect: false, rationale: "This describes capacitive touch screens." }
+                ]
+            },
+            {
+                question: "What is the physical layout pattern of data tracks on standard optical discs?",
+                options: [
+                    { text: "A single continuous spiral track winding from the inner center of the disc outwards to the outer edge", isCorrect: true, rationale: "Unlike hard disks which use concentric circles, optical discs use one long continuous spiral track." },
+                    { text: "Concentric circular tracks divided into rigid pie-shaped sectors", isCorrect: false, rationale: "Concentric tracks are used in hard disk drives (HDDs)." },
+                    { text: "Parallel vertical lines running straight across the disc surface", isCorrect: false, rationale: "This describes linear 1D barcodes." },
+                    { text: "Randomized unformatted memory clusters", isCorrect: false, rationale: "Optical discs must be formatted with a continuous spiral track." }
+                ]
+            },
+            {
+                question: "What does the abbreviation 'CD-ROM' stand for, and what are its storage characteristics?",
+                options: [
+                    { text: "Compact Disc Read-Only Memory; data is pre-pressed during manufacturing and cannot be altered or deleted by the user", isCorrect: true, rationale: "CD-ROMs are read-only optical discs manufactured commercially with permanent data." },
+                    { text: "Compact Disc Rapid Online Modem; used for broadband internet access", isCorrect: false, rationale: "This is incorrect terminology." },
+                    { text: "Compact Disc Rewritable Operating Module; stores system boot files", isCorrect: false, rationale: "This is incorrect." },
+                    { text: "Compact Disc Randomly Organized Media; stores temporary volatile cache", isCorrect: false, rationale: "This is incorrect." }
+                ]
+            },
+            {
+                question: "What is the standard data storage capacity of a typical CD-ROM or CD-R disc?",
+                options: [
+                    { text: "Approximately 700 megabytes (MB) of data (or 80 minutes of audio)", isCorrect: true, rationale: "Standard CDs hold around 700 MB of digital data." },
+                    { text: "4.7 gigabytes (GB) of data", isCorrect: false, rationale: "4.7 GB is the capacity of a standard single-layer DVD." },
+                    { text: "25 to 50 gigabytes (GB) of data", isCorrect: false, rationale: "This is the capacity of Blu-ray discs." },
+                    { text: "1 terabyte (TB) of data", isCorrect: false, rationale: "CDs cannot hold 1 TB." }
+                ]
+            },
+            {
+                question: "What is the difference between CD-R (Recordable) and CD-RW (Rewritable) discs?",
+                options: [
+                    { text: "CD-R discs can be written to once by the user and then become read-only, whereas CD-RW discs can be written to, erased, and rewritten multiple times", isCorrect: true, rationale: "CD-R uses an organic dye layer that is permanently altered by a laser once; CD-RW uses a phase-change alloy that can be repeatedly melted and reset." },
+                    { text: "CD-R discs hold video files, while CD-RW discs only hold audio music", isCorrect: false, rationale: "Both can hold any digital file type." },
+                    { text: "CD-R discs require magnetic tape drives, while CD-RW discs require USB flash ports", isCorrect: false, rationale: "Both are optical discs read by optical drives." },
+                    { text: "CD-R is volatile memory, while CD-RW is non-volatile backing storage", isCorrect: false, rationale: "Both are non-volatile storage media." }
+                ]
+            },
+            {
+                question: "How do DVD (Digital Versatile Disc) storage capacities compare to standard CDs?",
+                options: [
+                    { text: "DVDs store significantly more data (typically 4.7 GB for single-layer) because they use a tighter spiral track and a shorter laser wavelength", isCorrect: true, rationale: "DVDs pack more data into the same physical disc size by using a tighter spiral track and finer laser focusing." },
+                    { text: "DVDs hold less data than CDs because they are physically smaller in diameter", isCorrect: false, rationale: "CDs and DVDs share the exact same 12cm physical diameter." },
+                    { text: "DVDs store data using magnetic iron oxide platters instead of optical pits", isCorrect: false, rationale: "DVDs are optical media." },
+                    { text: "DVDs require magnetic tape cassette players", isCorrect: false, rationale: "This is incorrect." }
+                ]
+            },
+            {
+                question: "What is the difference between single-layer and dual-layer (DL) DVD discs?",
+                options: [
+                    { text: "Dual-layer DVDs feature a second semi-reflective recording layer behind the first layer, roughly doubling total storage capacity to about 8.5 GB", isCorrect: true, rationale: "Dual-layer DVDs allow the laser to focus through the top semi-transparent layer to access a second layer underneath, increasing capacity." },
+                    { text: "Dual-layer DVDs are thicker and require two separate disc drives stacked on top of each other", isCorrect: false, rationale: "Dual-layer discs fit into standard single DVD drives." },
+                    { text: "Dual-layer DVDs store data using magnetic tape reels", isCorrect: false, rationale: "This is incorrect." },
+                    { text: "Dual-layer DVDs are read using blue laser light instead of red light", isCorrect: true.split()[0] === 'false' && true, rationale: "Blue lasers are used for Blu-ray discs, not DVDs." }
+                ]
+            },
+            {
+                question: "What are the typical real-world uses of CD and DVD optical media?",
+                options: [
+                    { text: "Distributing commercial software, audio music albums, movie films, video games, and archival backups of personal documents and photos", isCorrect: true, rationale: "CDs and DVDs were historically standard for software installation, music, movies, and archiving." },
+                    { text: "Controlling industrial manufacturing robotic welding arms", isCorrect: false, rationale: "Factory robots use computer controller programs." },
+                    { text: "Printing supermarket customer receipts and barcode labels", isCorrect: false, rationale: "Receipts are printed by thermal printers." },
+                    { text: "Measuring ambient room air temperature in greenhouses", isCorrect: false, rationale: "This uses temperature sensors." }
+                ]
+            },
+            {
+                question: "What are the major advantages of optical media (CD/DVD/Blu-ray) compared to hard disk drives?",
+                options: [
+                    { text: "They are cheap to produce in bulk, lightweight, portable, immune to magnetic interference, and ideal for read-only distribution", isCorrect: true, rationale: "Optical discs are extremely inexpensive to manufacture in mass quantities and unaffected by magnets." },
+                    { text: "They have faster data read speeds than solid-state drives", isCorrect: false, rationale: "Optical discs have much slower data access and transfer speeds than HDDs and SSDs." },
+                    { text: "They hold 100 terabytes of data on a single disc", isCorrect: false, rationale: "Their capacity is much smaller than modern hard drives." },
+                    { text: "They never suffer from surface scratching or dust damage", isCorrect: false, rationale: "Scratches can easily render optical discs unreadable." }
+                ]
+            },
+            {
+                question: "What are the major disadvantages of optical media storage?",
+                options: [
+                    { text: "Relatively low storage capacity compared to HDDs/SSDs, slow data transfer speeds, and vulnerability to physical damage (scratches from mishandling)", isCorrect: true, rationale: "Optical discs scratch easily, hold limited data relative to modern drives, and transfer data slowly." },
+                    { text: "They require internal combustion engine fuel to spin", isCorrect: false, rationale: "This is absurd." },
+                    { text: "They are volatile memory chips that lose data when powered down", isCorrect: false, rationale: "Optical discs are non-volatile backing storage." },
+                    { text: "They cannot be read by optical disc drives", isCorrect: false, rationale: "They require optical drives." }
+                ]
+            },
+            {
+                question: "Why can surface scratches on the underside of a CD or DVD render the disc unreadable?",
+                options: [
+                    { text: "Scratches scatter or block the laser beam, preventing it from reflecting accurately off the pits and lands underneath", isCorrect: true, rationale: "Optical drives rely on clean laser reflection; deep scratches disrupt the light path, causing read errors." },
+                    { text: "Scratches instantly erase all magnetic iron oxide particles on the disc", isCorrect: false, rationale: "Optical discs do not use magnetic particles." },
+                    { text: "Scratches cause the plastic disc to melt from friction heat", isCorrect: false, rationale: "Drive rotation speeds do not generate melting heat." },
+                    { text: "Scratches convert the CD into a floppy disk", isCorrect: false, rationale: "This is impossible." }
+                ]
+            },
+            {
+                question: "What is the difference between DVD-R and DVD-RW formats?",
+                options: [
+                    { text: "DVD-R is write-once and read-many, whereas DVD-RW can be erased and rewritten multiple times", isCorrect: true, rationale: "Similar to CD-R and CD-RW, DVD-R is permanent after one write, while DVD-RW supports rewritable data updates." },
+                    { text: "DVD-R stores audio only, while DVD-RW stores video only", isCorrect: false, rationale: "Both formats handle any digital file type." },
+                    { text: "DVD-R uses blue laser light, while DVD-RW uses infrared lasers", isCorrect: false, rationale: "Both standard DVDs use red lasers." },
+                    { text: "There is no functional difference between DVD-R and DVD-RW", isCorrect: false, rationale: "Their rewritability features differ." }
+                ]
+            },
+            {
+                question: "Which hardware category do CD and DVD optical drives belong to?",
+                options: [
+                    { text: "Backing storage devices", isCorrect: true, rationale: "Optical disc drives provide non-volatile backing storage media." },
+                    { text: "Manual data entry input devices", isCorrect: false, rationale: "Optical drives are storage peripherals." },
+                    { text: "Soft-copy visual display units", isCorrect: false, rationale: "This describes monitors." },
+                    { text: "Primary volatile RAM memory chips", isCorrect: false, rationale: "This describes RAM." }
+                ]
+            },
+
+            // 3.2.2 Blu-ray Discs (16 to 30)
+            {
+                question: "What is a Blu-ray disc, and why is it called 'Blu-ray'?",
+                options: [
+                    { text: "A high-capacity optical disc format named after the blue-violet laser used to read and write data, which has a shorter wavelength than red lasers", isCorrect: true, rationale: "Blu-ray uses a shorter-wavelength blue-violet laser (405nm) instead of the red laser (650nm) used in DVDs." },
+                    { text: "It is a disc painted with bright blue fluorescent ink that glows in the dark", isCorrect: false, rationale: "The name comes from the blue laser color, not fluorescent paint." },
+                    { text: "It is a magnetic storage disk coated in blue iron powder", isCorrect: false, rationale: "Blu-ray is optical media, not magnetic." },
+                    { text: "It is an optical disc designed exclusively for listening to blues music", isCorrect: false, rationale: "Blu-ray holds high-definition video and data, not just blues music." }
+                ]
+            },
+            {
+                question: "How does the shorter wavelength of the blue-violet laser in Blu-ray drives allow for much higher storage capacities than DVDs?",
+                options: [
+                    { text: "A shorter laser wavelength can be focused into a much smaller spot, allowing pits and tracks to be packed significantly closer together", isCorrect: true, rationale: "Finer laser focusing enables smaller pits and tighter spiral tracks, dramatically increasing data density." },
+                    { text: "It makes the physical plastic disc expand to twice the size of a DVD", isCorrect: false, rationale: "Blu-ray discs share the exact same 12cm diameter as CDs and DVDs." },
+                    { text: "It generates high-voltage electricity to power the computer", isCorrect: false, rationale: "Blu-ray lasers do not supply computer power." },
+                    { text: "It burns magnetic tape reels inside the disc", isCorrect: false, rationale: "Blu-ray contains no tape." }
+                ]
+            },
+            {
+                question: "What is the standard data storage capacity of a single-layer Blu-ray disc compared to a single-layer DVD?",
+                options: [
+                    { text: "A single-layer Blu-ray holds 25 GB, whereas a single-layer DVD holds 4.7 GB", isCorrect: true, rationale: "Blu-ray capacity is over 5 times greater than standard DVD capacity due to higher data density." },
+                    { text: "A single-layer Blu-ray holds 700 MB, same as a CD", isCorrect: false, rationale: "700 MB is CD capacity." },
+                    { text: "A single-layer Blu-ray holds 1 terabyte of data", isCorrect: false, rationale: "Standard single-layer Blu-ray holds 25 GB." },
+                    { text: "Blu-ray and DVD capacities are identical", isCorrect: false, rationale: "Blu-ray holds vastly more data." }
+                ]
+            },
+            {
+                question: "What is the storage capacity of a dual-layer Blu-ray disc?",
+                options: [
+                    { text: "50 gigabytes (GB)", isCorrect: true, rationale: "Dual-layer Blu-ray discs double standard capacity, providing 50 GB of storage." },
+                    { text: "8.5 gigabytes (GB)", isCorrect: false, rationale: "8.5 GB is dual-layer DVD capacity." },
+                    { text: "700 megabytes (MB)", isCorrect: false, rationale: "700 MB is CD capacity." },
+                    { text: "500 gigabytes (GB)", isCorrect: false, rationale: "50 GB is standard dual-layer Blu-ray capacity." }
+                ]
+            },
+            {
+                question: "What are the typical real-world uses of Blu-ray discs?",
+                options: [
+                    { text: "Distributing high-definition (HD and 4K Ultra HD) feature films, PlayStation and Xbox console video games, and massive data backups", isCorrect: true, rationale: "Blu-ray's high capacity makes it ideal for storing high-definition video and large-file video games." },
+                    { text: "Playing standard audio music albums in older 1980s car stereos", isCorrect: false, rationale: "Older car stereos use standard audio CDs, not Blu-ray." },
+                    { text: "Printing architectural blueprints onto paper rolls", isCorrect: false, rationale: "Blueprints are printed by plotters." },
+                    { text: "Scanning multiple-choice exam answer sheets", isCorrect: false, rationale: "This uses OMR scanners." }
+                ]
+            },
+            {
+                question: "What is BD-ROM, BD-R, and BD-RE in Blu-ray formatting terminology?",
+                options: [
+                    { text: "BD-ROM is read-only (commercial movies), BD-R is recordable once, and BD-RE is rewritable multiple times", isCorrect: true, rationale: "Similar to CD/DVD formats, Blu-ray offers Read-Only Memory (ROM), Recordable (R), and Rewritable (RE) versions." },
+                    { text: "They represent different physical disc diameters (small, medium, large)", isCorrect: false, rationale: "All standard Blu-ray discs are 12cm in diameter." },
+                    { text: "They are different speeds of USB cable connections", isCorrect: false, rationale: "These are optical disc format types." },
+                    { text: "They stand for barcode, OMR, and OCR scanning modes", isCorrect: false, rationale: "This is incorrect." }
+                ]
+            },
+            {
+                question: "What physical protection feature do Blu-ray discs often include on their recording surface compared to DVDs?",
+                options: [
+                    { text: "A specialized hard-coating layer that makes them much more resistant to scratching and fingerprint smudges than DVDs", isCorrect: true, rationale: "Because Blu-ray data layer sits closer to the surface, manufacturers apply a robust scratch-resistant protective coating." },
+                    { text: "A thick layer of magnetic iron oxide shielding", isCorrect: false, rationale: "Blu-ray is optical, not magnetic." },
+                    { text: "A built-in lithium-ion battery pack", isCorrect: false, rationale: "Optical discs contain no batteries." },
+                    { text: "An automated self-cleaning water spray nozzle", isCorrect: false, rationale: "This is fiction." }
+                ]
+            },
+            {
+                question: "What are the major advantages of Blu-ray discs over standard DVDs?",
+                options: [
+                    { text: "Massive storage capacity (25 GB to 50+ GB) supporting full 1080p high-definition and 4K video playback with superior quality", isCorrect: true, rationale: "Blu-ray provides enough capacity for high-definition video codecs and uncompressed audio tracks." },
+                    { text: "They are cheaper to purchase than blank DVDs", isCorrect: false, rationale: "Blu-ray discs and drives are generally more expensive than DVDs." },
+                    { text: "They can be played in standard CD audio CD players from 1982", isCorrect: false, rationale: "CD players lack blue lasers and cannot read Blu-ray discs." },
+                    { text: "They never require an optical disc drive to read", isCorrect: false, rationale: "All optical discs require compatible optical drives." }
+                ]
+            },
+            {
+                question: "What are the major disadvantages of Blu-ray technology?",
+                options: [
+                    { text: "Higher cost of Blu-ray discs and player/drive hardware, and slower data read/write speeds compared to solid-state drives", isCorrect: true, rationale: "Blu-ray hardware and media cost more than older CD/DVD formats, and data speeds trail behind SSDs." },
+                    { text: "They hold less data than a standard floppy disk", isCorrect: false, rationale: "Blu-ray holds vastly more data than a floppy disk." },
+                    { text: "They are physically too large to fit into standard computers", isCorrect: false, rationale: "Blu-ray drives fit into standard 5.25-inch computer drive bays or connect via USB." },
+                    { text: "They melt when exposed to room temperature air", isCorrect: false, rationale: "This is false." }
+                ]
+            },
+            {
+                question: "Why can a Blu-ray player read a standard DVD or CD, but a standard DVD player cannot read a Blu-ray disc?",
+                options: [
+                    { text: "Blu-ray drives contain multiple laser diodes (including a blue-violet laser and a red laser), whereas DVD players only have a red laser", isCorrect: true, rationale: "Blu-ray drives feature backward compatibility by housing both blue and red lasers to read older formats." },
+                    { text: "DVD players use magnetic tape heads that cannot touch optical discs", isCorrect: false, rationale: "DVD players use optical red lasers." },
+                    { text: "Blu-ray discs are magnetic, while DVDs are optical", isCorrect: false, rationale: "Both are optical media." },
+                    { text: "Blu-ray discs rotate backward against physics rules", isCorrect: false, rationale: "This is incorrect." }
+                ]
+            },
+            {
+                question: "How does the data transfer rate of Blu-ray drives compare to CDs and DVDs?",
+                options: [
+                    { text: "Blu-ray drives offer much higher data transfer rates than CDs and DVDs, allowing smooth playback of high-bitrate HD video", isCorrect: true, rationale: "Blu-ray drives spin faster and read data at higher megabits-per-second rates to support HD video streaming." },
+                    { text: "Blu-ray transfer speeds are 1,000 times slower than 1990s floppy disks", isCorrect: false, rationale: "Blu-ray speeds are much faster than floppy disks." },
+                    { text: "Blu-ray drives do not transfer data", isCorrect: false, rationale: "They transfer data successfully." },
+                    { text: "CD transfer rates are faster than Blu-ray", isCorrect: false, rationale: "Blu-ray technology is much newer and faster." }
+                ]
+            },
+            {
+                question: "What is Ultra HD Blu-ray (4K Blu-ray)?",
+                options: [
+                    { text: "An advanced Blu-ray format supporting 4K resolution video, HDR (High Dynamic Range), and capacities of 66 GB to 100 GB (triple-layer discs)", isCorrect: true, rationale: "Ultra HD Blu-ray uses multi-layer discs (66 GB or 100 GB) to store massive 4K video files." },
+                    { text: "A magnetic tape backup cartridge used in mainframes", isCorrect: false, rationale: "This is tape storage." },
+                    { text: "An optical disc read by infrared lasers for audio only", isCorrect: false, rationale: "This is incorrect." },
+                    { text: "A cloud storage subscription service", isCorrect: false, rationale: "This is local physical optical media." }
+                ]
+            },
+            {
+                question: "What is an optical disc burner (optical writer)?",
+                options: [
+                    { text: "An optical drive equipped with a stronger laser capable of permanently altering dye layers or phase-change surfaces to write data onto CD-R, DVD-R, or Blu-ray discs", isCorrect: true, rationale: "Optical writers use higher-power lasers to burn data onto recordable or rewritable blank discs." },
+                    { text: "A laser printer that fuses toner powder onto paper", isCorrect: false, rationale: "This describes laser printers." },
+                    { text: "A device that scans paper documents into digital files", isCorrect: false, rationale: "This describes flatbed scanners." },
+                    { text: "An incinerator for destroying confidential paper documents", isCorrect: false, rationale: "This is office waste management equipment." }
+                ]
+            },
+            {
+                question: "Why are optical discs still valued for long-term archival data storage despite the rise of cloud storage and SSDs?",
+                options: [
+                    { text: "Properly stored optical discs are immune to network hacking, ransomware, and mechanical hard drive crashes, retaining data safely for decades offline", isCorrect: true, rationale: "Offline optical archival discs cannot be infected by malware or hacked remotely over the internet." },
+                    { text: "Because optical discs have infinite rewrite cycles", isCorrect: false, rationale: "Read-only discs cannot be rewritten." },
+                    { text: "Because cloud storage has been made illegal worldwide", isCorrect: false, rationale: "Cloud storage is legal and popular." },
+                    { text: "Because optical discs hold petabytes of data", isCorrect: false, rationale: "Their capacity is limited compared to modern cloud servers." }
+                ]
+            },
+            {
+                question: "Which summary best compares CD, DVD, and Blu-ray optical storage devices in IGCSE ICT?",
+                options: [
+                    { text: "CDs store up to 700 MB using infrared/red lasers; DVDs store 4.7+ GB using tighter red lasers; Blu-rays store 25+ GB using short-wavelength blue-violet lasers for high-definition media", isCorrect: true, rationale: "Capacities and laser wavelengths scale progressively from CD to DVD to Blu-ray due to increasing data density and finer laser focusing." },
+                    { text: "All three optical formats share the exact same 500 GB storage capacity and use identical laser colors", isCorrect: false, rationale: "Their capacities and laser types differ completely." },
+                    { text: "CDs are magnetic storage, DVDs are solid-state, and Blu-rays are optical tape", isCorrect: false, rationale: "All three are optical storage media." },
+                    { text: "None of these devices are included in the IGCSE ICT syllabus", isCorrect: false, rationale: "CD, DVD, and Blu-ray are core syllabus optical storage topics." }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        const questionCounter = document.getElementById("question-counter");
+        const scoreDisplay = document.getElementById("score-display");
+        const questionBox = document.getElementById("question-box");
+        const optionsContainer = document.getElementById("options-container");
+        const feedbackBox = document.getElementById("feedback-box");
+        const nextBtn = document.getElementById("next-btn");
+        const quizContainer = document.getElementById("quiz-container");
+        const resultsContainer = document.getElementById("results-container");
+        const finalScore = document.getElementById("final-score");
+
+        function loadQuestion() {
+            answered = false;
+            feedbackBox.classList.add("hidden");
+            nextBtn.classList.add("hidden");
+            
+            const q = questions[currentQuestionIndex];
+            questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            scoreDisplay.textContent = `Score: ${score}`;
+            questionBox.textContent = q.question;
+
+            // Shuffle options array randomly so correct answer is not always first
+            let shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+
+            optionsContainer.innerHTML = "";
+            shuffledOptions.forEach((opt) => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn";
+                btn.textContent = opt.text;
+                btn.onclick = () => selectOption(opt, shuffledOptions);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedOpt, shuffledOptions) {
+            if (answered) return;
+            answered = true;
+
+            const allOptionButtons = optionsContainer.children;
+
+            shuffledOptions.forEach((opt, idx) => {
+                allOptionButtons[idx].disabled = true;
+                if (opt.isCorrect) {
+                    allOptionButtons[idx].classList.add("correct");
+                } else if (opt === selectedOpt && !selectedOpt.isCorrect) {
+                    allOptionButtons[idx].classList.add("incorrect");
+                }
+            });
+
+            feedbackBox.classList.remove("hidden");
+            if (selectedOpt.isCorrect) {
+                score++;
+                scoreDisplay.textContent = `Score: ${score}`;
+                feedbackBox.className = "feedback-box correct-feedback";
+                feedbackBox.innerHTML = `<strong>Correct!</strong> ${selectedOpt.rationale}`;
+            } else {
+                feedbackBox.className = "feedback-box incorrect-feedback";
+                feedbackBox.innerHTML = `<strong>Incorrect.</strong> ${selectedOpt.rationale}`;
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                nextBtn.textContent = "Next Question";
+            } else {
+                nextBtn.textContent = "View Results";
+            }
+            nextBtn.classList.remove("hidden");
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                quizContainer.classList.add("hidden");
+                resultsContainer.classList.remove("hidden");
+                finalScore.textContent = `You scored ${score} out of ${questions.length}`;
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            resultsContainer.classList.add("hidden");
+            quizContainer.classList.remove("hidden");
+            loadQuestion();
+        }
+
+        // Initialize quiz on load
+        loadQuestion();
+    </script>
+</body>
+</html>
