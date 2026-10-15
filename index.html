@@ -240,7 +240,7 @@
             </div>
 
             <div style="display: flex; justify-content: flex-end;">
-                <button id="next-btn" onclick="nextQuestion()" class="btn-primary hidden">Next Question} </button>
+                <button id="next-btn" onclick="nextQuestion()" class="btn-primary hidden">Next Question</button>
             </div>
         </div>
 
@@ -337,7 +337,7 @@
                     { text: "Dual-layer DVDs feature a second semi-reflective recording layer behind the first layer, roughly doubling total storage capacity to about 8.5 GB", isCorrect: true, rationale: "Dual-layer DVDs allow the laser to focus through the top semi-transparent layer to access a second layer underneath, increasing capacity." },
                     { text: "Dual-layer DVDs are thicker and require two separate disc drives stacked on top of each other", isCorrect: false, rationale: "Dual-layer discs fit into standard single DVD drives." },
                     { text: "Dual-layer DVDs store data using magnetic tape reels", isCorrect: false, rationale: "This is incorrect." },
-                    { text: "Dual-layer DVDs are read using blue laser light instead of red light", isCorrect: true.split()[0] === 'false' && true, rationale: "Blue lasers are used for Blu-ray discs, not DVDs." }
+                    { text: "Dual-layer DVDs are read using blue laser light instead of red light", isCorrect: false, rationale: "Blue lasers are used for Blu-ray discs, not DVDs." }
                 ]
             },
             {
@@ -496,39 +496,39 @@
                 ]
             },
             {
-                question: "What is Ultra HD Blu-ray (4K Blu-ray)?",
+                question: "What is the primary role of the motor in an optical disc drive?",
                 options: [
-                    { text: "An advanced Blu-ray format supporting 4K resolution video, HDR (High Dynamic Range), and capacities of 66 GB to 100 GB (triple-layer discs)", isCorrect: true, rationale: "Ultra HD Blu-ray uses multi-layer discs (66 GB or 100 GB) to store massive 4K video files." },
-                    { text: "A magnetic tape backup cartridge used in mainframes", isCorrect: false, rationale: "This is tape storage." },
-                    { text: "An optical disc read by infrared lasers for audio only", isCorrect: false, rationale: "This is incorrect." },
-                    { text: "A cloud storage subscription service", isCorrect: false, rationale: "This is local physical optical media." }
+                    { text: "To spin the optical disc at constant linear or angular velocity so the laser can scan the spiral track", isCorrect: true, rationale: "Optical drives use spindle motors to rotate the disc during read/write operations." },
+                    { text: "To cool down the computer's CPU processor chip", isCorrect: false, rationale: "CPU cooling uses cooling fans." },
+                    { text: "To print paper labels onto the top of the disc", isCorrect: false, rationale: "Disc labeling requires specialized printers." },
+                    { text: "To charge the battery of the laptop", isCorrect: false, rationale: "Charging is handled by the power adapter circuit." }
                 ]
             },
             {
-                question: "What is an optical disc burner (optical writer)?",
+                question: "Why do optical discs need to be stored away from direct sunlight and extreme heat?",
                 options: [
-                    { text: "An optical drive equipped with a stronger laser capable of permanently altering dye layers or phase-change surfaces to write data onto CD-R, DVD-R, or Blu-ray discs", isCorrect: true, rationale: "Optical writers use higher-power lasers to burn data onto recordable or rewritable blank discs." },
-                    { text: "A laser printer that fuses toner powder onto paper", isCorrect: false, rationale: "This describes laser printers." },
-                    { text: "A device that scans paper documents into digital files", isCorrect: false, rationale: "This describes flatbed scanners." },
-                    { text: "An incinerator for destroying confidential paper documents", isCorrect: false, rationale: "This is office waste management equipment." }
+                    { text: "Excessive heat and UV light can warp the polycarbonate plastic disc or degrade the recording dye layers, causing permanent data loss", isCorrect: true, rationale: "Thermal warping and UV radiation damage optical disc materials, destroying readability." },
+                    { text: "Sunlight instantly charges the disc into a high-voltage battery", isCorrect: false, rationale: "Optical discs cannot store electrical charge." },
+                    { text: "Sunlight converts the optical tracks into magnetic tracks", isCorrect: false, rationale: "This is false." },
+                    { text: "Sunlight increases the storage capacity to 10 terabytes", isCorrect: false, rationale: "This is incorrect." }
                 ]
             },
             {
-                question: "Why are optical discs still valued for long-term archival data storage despite the rise of cloud storage and SSDs?",
+                question: "How does a CD/DVD writer (burner) physically alter a blank CD-R or DVD-R disc during the recording process?",
                 options: [
-                    { text: "Properly stored optical discs are immune to network hacking, ransomware, and mechanical hard drive crashes, retaining data safely for decades offline", isCorrect: true, rationale: "Offline optical archival discs cannot be infected by malware or hacked remotely over the internet." },
-                    { text: "Because optical discs have infinite rewrite cycles", isCorrect: false, rationale: "Read-only discs cannot be rewritten." },
-                    { text: "Because cloud storage has been made illegal worldwide", isCorrect: false, rationale: "Cloud storage is legal and popular." },
-                    { text: "Because optical discs hold petabytes of data", isCorrect: false, rationale: "Their capacity is limited compared to modern cloud servers." }
+                    { text: "A high-powered laser heats up microscopic spots on an organic dye layer, altering its reflectivity to simulate pits and lands", isCorrect: true, rationale: "Writers use a stronger write laser to burn spots into the dye layer, mimicking stamped pits." },
+                    { text: "Mechanical steel pins stamp physical holes directly into the plastic", isCorrect: false, rationale: "Recording uses laser light, not mechanical pins." },
+                    { text: "Magnetic heads magnetize iron particles", isCorrect: false, rationale: "CD-R is optical, not magnetic." },
+                    { text: "Ink jets spray microscopic black ink dots onto the bottom", isCorrect: false, rationale: "This is inkjet printing." }
                 ]
             },
             {
-                question: "Which summary best compares CD, DVD, and Blu-ray optical storage devices in IGCSE ICT?",
+                question: "Which summary best defines the overall purpose of optical storage media in computer systems?",
                 options: [
-                    { text: "CDs store up to 700 MB using infrared/red lasers; DVDs store 4.7+ GB using tighter red lasers; Blu-rays store 25+ GB using short-wavelength blue-violet lasers for high-definition media", isCorrect: true, rationale: "Capacities and laser wavelengths scale progressively from CD to DVD to Blu-ray due to increasing data density and finer laser focusing." },
-                    { text: "All three optical formats share the exact same 500 GB storage capacity and use identical laser colors", isCorrect: false, rationale: "Their capacities and laser types differ completely." },
-                    { text: "CDs are magnetic storage, DVDs are solid-state, and Blu-rays are optical tape", isCorrect: false, rationale: "All three are optical storage media." },
-                    { text: "None of these devices are included in the IGCSE ICT syllabus", isCorrect: false, rationale: "CD, DVD, and Blu-ray are core syllabus optical storage topics." }
+                    { text: "They provide removable, non-volatile optical backing storage using laser technology to read and write data along spiral tracks, ideal for portable software and media distribution", isCorrect: true, rationale: "Optical storage offers portable, reliable, non-volatile data distribution via laser optics." },
+                    { text: "They provide volatile primary cache memory that clears when powered off", isCorrect: false, rationale: "RAM provides volatile memory, not optical drives." },
+                    { text: "They act as manual data input keyboards", isCorrect: false, rationale: "Keyboards are input devices." },
+                    { text: "They display visual soft-copy graphics on a glass panel", isCorrect: false, rationale: "This describes monitors." }
                 ]
             }
         ];
@@ -547,41 +547,56 @@
         const resultsContainer = document.getElementById("results-container");
         const finalScore = document.getElementById("final-score");
 
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // Shuffle question order on load
+        shuffleArray(questions);
+
         function loadQuestion() {
             answered = false;
             feedbackBox.classList.add("hidden");
             nextBtn.classList.add("hidden");
-            
-            const q = questions[currentQuestionIndex];
+
+            const currentQ = questions[currentQuestionIndex];
             questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
             scoreDisplay.textContent = `Score: ${score}`;
-            questionBox.textContent = q.question;
-
-            // Shuffle options array randomly so correct answer is not always first
-            let shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+            questionBox.textContent = currentQ.question;
 
             optionsContainer.innerHTML = "";
-            shuffledOptions.forEach((opt) => {
+
+            // Shuffle options for each question so correct answers aren't always first
+            let shuffledOptions = [...currentQ.options];
+            shuffleArray(shuffledOptions);
+
+            shuffledOptions.forEach(opt => {
                 const btn = document.createElement("button");
                 btn.className = "option-btn";
                 btn.textContent = opt.text;
-                btn.onclick = () => selectOption(opt, shuffledOptions);
+                btn.onclick = () => selectOption(opt, btn);
                 optionsContainer.appendChild(btn);
             });
         }
 
-        function selectOption(selectedOpt, shuffledOptions) {
+        function selectOption(selectedOpt, selectedBtn) {
             if (answered) return;
             answered = true;
 
-            const allOptionButtons = optionsContainer.children;
-
-            shuffledOptions.forEach((opt, idx) => {
-                allOptionButtons[idx].disabled = true;
-                if (opt.isCorrect) {
-                    allOptionButtons[idx].classList.add("correct");
-                } else if (opt === selectedOpt && !selectedOpt.isCorrect) {
-                    allOptionButtons[idx].classList.add("incorrect");
+            const allButtons = optionsContainer.querySelectorAll(".option-btn");
+            allButtons.forEach(btn => {
+                btn.disabled = true;
+                const matchingOpt = questions[currentQuestionIndex].options.find(o => o.text === btn.textContent);
+                if (matchingOpt.isCorrect) {
+                    btn.classList.add("correct");
+                } else if (btn === selectedBtn) {
+                    btn.classList.add("incorrect");
                 }
             });
 
@@ -590,17 +605,13 @@
                 score++;
                 scoreDisplay.textContent = `Score: ${score}`;
                 feedbackBox.className = "feedback-box correct-feedback";
-                feedbackBox.innerHTML = `<strong>Correct!</strong> ${selectedOpt.rationale}`;
+                feedbackBox.innerHTML = `<strong>Correct! 🎉</strong> ${selectedOpt.rationale}`;
             } else {
                 feedbackBox.className = "feedback-box incorrect-feedback";
-                feedbackBox.innerHTML = `<strong>Incorrect.</strong> ${selectedOpt.rationale}`;
+                const correctOpt = questions[currentQuestionIndex].options.find(o => o.isCorrect);
+                feedbackBox.innerHTML = `<strong>Incorrect.</strong> ${selectedOpt.rationale}<br><br><em>Correct answer:</em> ${correctOpt.text}`;
             }
 
-            if (currentQuestionIndex < questions.length - 1) {
-                nextBtn.textContent = "Next Question";
-            } else {
-                nextBtn.textContent = "View Results";
-            }
             nextBtn.classList.remove("hidden");
         }
 
@@ -609,21 +620,26 @@
             if (currentQuestionIndex < questions.length) {
                 loadQuestion();
             } else {
-                quizContainer.classList.add("hidden");
-                resultsContainer.classList.remove("hidden");
-                finalScore.textContent = `You scored ${score} out of ${questions.length}`;
+                showResults();
             }
+        }
+
+        function showResults() {
+            quizContainer.classList.add("hidden");
+            resultsContainer.classList.remove("hidden");
+            finalScore.textContent = `You scored ${score} out of ${questions.length}`;
         }
 
         function restartQuiz() {
             currentQuestionIndex = 0;
             score = 0;
+            shuffleArray(questions);
             resultsContainer.classList.add("hidden");
             quizContainer.classList.remove("hidden");
             loadQuestion();
         }
 
-        // Initialize quiz on load
+        // Initialize first question
         loadQuestion();
     </script>
 </body>
